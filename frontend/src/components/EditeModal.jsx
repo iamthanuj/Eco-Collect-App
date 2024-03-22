@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from "react";
 
-function EditeModal({ selectedMentor, onUpdate, onClose }) {
-  const [editedMentor, setEditedMentor] = useState(selectedMentor || {});
+function EditeModal({ selectedUser, onUpdate, onClose }) {
+  const [editedUser, setEditedUser] = useState(selectedUser || {});
 
   useEffect(() => {
-    setEditedMentor(selectedMentor || {});
-  }, [selectedMentor]);
+    setEditedUser(selectedUser || {});
+  }, [selectedUser]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setEditedMentor((prevMentor) => ({
-      ...prevMentor,
+    setEditedUser((prevUser) => ({
+      ...prevUser,
       [name]: value,
     }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onUpdate(editedMentor);
+    onUpdate(editedUser);
     onClose();
   };
 
@@ -29,8 +29,8 @@ function EditeModal({ selectedMentor, onUpdate, onClose }) {
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                name="name"
-                value={editedMentor.firstName}
+                name="firstName"
+                value={editedUser.firstName}
                 id="floating_email"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
@@ -47,9 +47,9 @@ function EditeModal({ selectedMentor, onUpdate, onClose }) {
 
             <div className="relative z-0 w-full mb-5 group">
               <input
-                type="email"
-                name="email"
-                value={editedMentor.lastName}
+                type="text"
+                name="lastName"
+                value={editedUser.lastName}
                 id="floating_email"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
@@ -67,8 +67,8 @@ function EditeModal({ selectedMentor, onUpdate, onClose }) {
             <div className="relative z-0 w-full mb-5 group">
               <input
                 type="text"
-                name="email"
-                value={editedMentor.phone}
+                name="phone"
+                value={editedUser.phone}
                 id="floating_email"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
@@ -85,9 +85,9 @@ function EditeModal({ selectedMentor, onUpdate, onClose }) {
 
             <div className="relative z-0 w-full mb-5 group">
               <input
-                type="text"
-                name="location"
-                value={editedMentor.email}
+                type="email"
+                name="email"
+                value={editedUser.email}
                 id="floating_email"
                 className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none  dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
                 placeholder=" "
@@ -102,28 +102,10 @@ function EditeModal({ selectedMentor, onUpdate, onClose }) {
               </label>
             </div>
 
-            <div className="relative z-0 w-full mb-5 group">
-              <label
-                htmlFor="countries"
-                className="block mb-2 text-sm font-medium text-black"
-              >
-                Select event type
-              </label>
-              <select
-                id="countries"
-                name="type"
-                onChange={handleInputChange}
-                value={editedMentor.type}
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              >
-                <option value="physical">Physical</option>
-                <option value="online">Online</option>
-              </select>
-            </div>
             <div className="flex justify-between gap-1">
               <input
                 type="submit"
-                value="Update Event"
+                value="Update Client"
                 className="bg-secendoryColor hover:bg-mainColor text-white px-2 py-2 rounded-md w-full cursor-pointer mt-5"
               />
               <button
