@@ -59,7 +59,6 @@ function ClientsPage() {
     setSelectedUser(null);
   };
 
-
   //update user
   const handleUpdateUser = async (updatedUser) => {
     console.log(updatedUser);
@@ -79,7 +78,6 @@ function ClientsPage() {
     }
   };
 
-
   //delete User
   const handleDeleteUser = async () => {
     const userId = selectedUser._id;
@@ -89,17 +87,18 @@ function ClientsPage() {
       toast.success("User Deleted");
     }
 
-    if(isError){
-        toast.error(message);
+    if (isError) {
+      toast.error(message);
     }
-
   };
 
-
-
-
   return (
-    <div className="flex flex-col gap-3 ml-[300px]">
+    <div className="flex flex-col gap-3 ml-[300px] font-inter">
+      <div>
+        <h1 className="text-center font-bold text-4xl text-secendoryColor">
+          Manage Clients
+        </h1>
+      </div>
       <div>
         <button
           onClick={handleOpenAdd}
@@ -193,9 +192,7 @@ function ClientsPage() {
               &#8203;
             </span>
             <div className="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-              <AddClientModal
-                onClose={handleCloseModal}
-              />
+              <AddClientModal onClose={handleCloseModal} />
             </div>
           </div>
         </div>
@@ -227,7 +224,6 @@ function ClientsPage() {
           </div>
         </div>
       )}
-
 
       {/* delete popup modal */}
       {deleteModalOpen && (
